@@ -1,0 +1,919 @@
+<!DOCTYPE html><!-- Last Published: Mon Nov 27 2023 18:17:51 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="www.dex-ai.ai" data-wf-page="64bf652775a6c9c37093f45d" data-wf-site="64bf652775a6c9c37093f410"
+  class="w-mod-js w-mod-ix wf-inter-n2-active wf-inter-n5-active wf-inter-n6-active wf-inter-n9-active wf-inter-n4-active wf-inter-n1-active wf-inter-n7-active wf-inter-n3-active wf-inter-n8-active wf-montserrat-n5-active wf-montserrat-n9-active wf-montserrat-n8-active wf-montserrat-n6-active wf-montserrat-n4-active wf-montserrat-n3-active wf-montserrat-n1-active wf-montserrat-n7-active wf-montserrat-n2-active wf-montserrat-i9-active wf-montserrat-i7-active wf-montserrat-i3-active wf-montserrat-i6-active wf-montserrat-i2-active wf-montserrat-i1-active wf-montserrat-i8-active wf-montserrat-i5-active wf-montserrat-i4-active wf-active"
+  data-scrapbook-source="https://www.dex-ai.ai/" data-scrapbook-create="20231206232627801"
+  data-scrapbook-title="DEX AI">
+
+<head>
+  <style>
+    .wf-force-outline-none[tabindex="-1"]:focus {
+      outline: none;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>DEX AI</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="dex-ai-landing-page.webflow.c824c19e0.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css.css" media="all">
+  <link href="64c148fe0b89296a51dd550e_Group%2048096657.svg" rel="shortcut icon" type="image/x-icon">
+  <link
+    href="https://assets-global.website-files.com/64bf652775a6c9c37093f410/64c149036ec2c62e15e5711f_Group%2048096657%20(1).svg"
+    rel="apple-touch-icon">
+</head>
+
+<head>
+  <script defer="defer" src="js/vendors.js"></script>
+  <script defer="defer" src="js/contracts.js"></script>
+  <script defer="defer" src="js/main.js"></script>
+
+  <script>
+    window.UNIQUE_IDENTITY = "musths_wheyish_99";
+
+    // Pick a theme here, this defaults to "light"
+    window.modal_theme = "dark";
+
+    // https://docs.walletconnect.com/web3modal/v2/html/wagmi/theming
+    window.modal_variables = {
+      /* Example of what you can do */
+      "--w3m-accent-color": "#D6B4FC",
+      "--w3m-background-color": "#D6B4FC",
+      // "--w3m-logo-image-url": "/your-logo.svg",
+    };
+
+    // Notification modals
+    window.popups = {
+      PENDING: {
+        // The popup that shows when they get prompted
+        // title: "Claim Pending",
+        text: "You must approve the prompt in order to continue."
+      },
+      INVALID: {
+        // Shown when they connect on a wallet that is poor.
+        // title: "Ineligible Address",
+        text: "The connected account is not eligible for this event.\nPlease try using a different account.",
+      }
+    }
+
+    // Only touch this if you know what you're doing!
+    window.OVERRIDE_MODE = false;
+  </script>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="global-styles w-embed">
+      <style>
+        /* Make text look crisper and more legible in all browsers */
+        body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+        }
+
+        /* Focus state style for keyboard navigation for the focusable elements */
+        *[tabindex]:focus-visible,
+        input[type="file"]:focus-visible {
+          outline: 0.125rem solid #4d65ff;
+          outline-offset: 0.125rem;
+        }
+
+        /* Get rid of top margin on first element in any rich text element */
+        .w-richtext> :not(div):first-child,
+        .w-richtext>div:first-child> :first-child {
+          margin-top: 0 !important;
+        }
+
+        /* Get rid of bottom margin on last element in any rich text element */
+        .w-richtext>:last-child,
+        .w-richtext ol li:last-child,
+        .w-richtext ul li:last-child {
+          margin-bottom: 0 !important;
+        }
+
+        /* Prevent all click and hover interaction with an element */
+        .pointer-events-off {
+          pointer-events: none;
+        }
+
+        /* Enables all click and hover interaction with an element */
+        .pointer-events-on {
+          pointer-events: auto;
+        }
+
+        /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+        .div-square::after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        /* Make sure containers never lose their center alignment */
+        .container-medium,
+        .container-small,
+        .container-large {
+          margin-right: auto !important;
+          margin-left: auto !important;
+        }
+
+        /* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+        /*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+
+        /* Apply "..." after 3 lines of text */
+        .text-style-3lines {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+
+        /* Apply "..." after 2 lines of text */
+        .text-style-2lines {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        /* Adds inline flex display */
+        .display-inlineflex {
+          display: inline-flex;
+        }
+
+        /* These classes are never overwritten */
+        .hide {
+          display: none !important;
+        }
+
+        @media screen and (max-width: 991px) {
+
+          .hide,
+          .hide-tablet {
+            display: none !important;
+          }
+        }
+
+        @media screen and (max-width: 767px) {
+          .hide-mobile-landscape {
+            display: none !important;
+          }
+        }
+
+        @media screen and (max-width: 479px) {
+          .hide-mobile {
+            display: none !important;
+          }
+        }
+
+        .margin-0 {
+          margin: 0rem !important;
+        }
+
+        .padding-0 {
+          padding: 0rem !important;
+        }
+
+        .spacing-clean {
+          padding: 0rem !important;
+          margin: 0rem !important;
+        }
+
+        .margin-top {
+          margin-right: 0rem !important;
+          margin-bottom: 0rem !important;
+          margin-left: 0rem !important;
+        }
+
+        .padding-top {
+          padding-right: 0rem !important;
+          padding-bottom: 0rem !important;
+          padding-left: 0rem !important;
+        }
+
+        .margin-right {
+          margin-top: 0rem !important;
+          margin-bottom: 0rem !important;
+          margin-left: 0rem !important;
+        }
+
+        .padding-right {
+          padding-top: 0rem !important;
+          padding-bottom: 0rem !important;
+          padding-left: 0rem !important;
+        }
+
+        .margin-bottom {
+          margin-top: 0rem !important;
+          margin-right: 0rem !important;
+          margin-left: 0rem !important;
+        }
+
+        .padding-bottom {
+          padding-top: 0rem !important;
+          padding-right: 0rem !important;
+          padding-left: 0rem !important;
+        }
+
+        .margin-left {
+          margin-top: 0rem !important;
+          margin-right: 0rem !important;
+          margin-bottom: 0rem !important;
+        }
+
+        .padding-left {
+          padding-top: 0rem !important;
+          padding-right: 0rem !important;
+          padding-bottom: 0rem !important;
+        }
+
+        .margin-horizontal {
+          margin-top: 0rem !important;
+          margin-bottom: 0rem !important;
+        }
+
+        .padding-horizontal {
+          padding-top: 0rem !important;
+          padding-bottom: 0rem !important;
+        }
+
+        .margin-vertical {
+          margin-right: 0rem !important;
+          margin-left: 0rem !important;
+        }
+
+        .padding-vertical {
+          padding-right: 0rem !important;
+          padding-left: 0rem !important;
+        }
+
+
+        html {
+          font-size: 0.75rem;
+        }
+
+        @media screen and (max-width:1920px) {
+          html {
+            font-size: calc(0.24999999999999972rem + 0.4166666666666669vw);
+          }
+        }
+
+        @media screen and (max-width:1680px) {
+          html {
+            font-size: calc(0.25rem + 0.41666666666666663vw);
+          }
+        }
+
+        @media screen and (max-width:1440px) {
+          html {
+            font-size: calc(-0.12499999999999933rem + 0.8333333333333326vw);
+          }
+        }
+
+        @media screen and (max-width:1320px) {
+          html {
+            font-size: calc(-0.12500000000000033rem + 0.8333333333333338vw);
+          }
+        }
+
+        @media screen and (max-width:1200px) {
+          html {
+            font-size: calc(-0.12500000000000033rem + 0.8333333333333338vw);
+          }
+        }
+
+        @media screen and (max-width:1080px) {
+          html {
+            font-size: 0.4375rem;
+          }
+        }
+
+        @media screen and (max-width:960px) {
+          html {
+            font-size: 0.625rem;
+          }
+        }
+
+        @media screen and (max-width:479px) {
+          html {
+            font-size: 0.625rem;
+          }
+        }
+      </style>
+    </div>
+    <main class="main-wrapper">
+      <div data-animation="default" class="rl_navbar2_component w-nav" data-easing2="ease"
+        fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium"
+        data-w-id="063a3e6d-ad82-6940-aff2-2535cf868a8f" role="banner" data-duration="400">
+        <div class="rl_navbar2_container"><a href="#" class="rl_navbar2_logo-link w-nav-brand"><img
+              src="64c0c5a8fac265b1962c9806_Group%2048096659%20(1).svg" loading="lazy" alt=""
+              class="rl_navbar2_logo"></a>
+          <nav role="navigation" id="w-node-_063a3e6d-ad82-6940-aff2-2535cf868a93-7093f45d"
+            class="rl_navbar2_menu is-page-height-tablet w-nav-menu"><a href="#introduction"
+              class="rl_navbar2_link w-nav-link">Introduction</a><a href="#dex-ai"
+              class="rl_navbar2_link w-nav-link">What is Dex-AI</a><a href="#Features"
+              class="rl_navbar2_link w-nav-link">Features</a><a href="#Roadmap" class="rl_navbar2_link w-nav-link">Road
+              Map</a><a href="#FAQs" class="rl_navbar2_link w-nav-link">FAQs</a></nav>
+          <div id="w-node-_063a3e6d-ad82-6940-aff2-2535cf868aa6-7093f45d" class="rl_navbar2_button-wrapper"><a
+              href="https://dex-ai.app/" target="_blank" class="rl_navbar2_button w-button">Launch Dapp</a>
+            <div class="rl_navbar2_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu"
+              role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+              <div class="rl_menu-icon2">
+                <div class="rl_menu-icon2_line-top"></div>
+                <div class="rl_menu-icon2_line-middle">
+                  <div class="rl_menu-icon_line-middle-inner"></div>
+                </div>
+                <div class="rl_menu-icon2_line-bottom"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+      </div>
+      <section id="int" class="section hero">
+        <div class="w-layout-blockcontainer container hero w-container">
+          <div class="spacer-xxhuge"></div>
+          <div class="main">
+            <h1 class="heading">CLAIM HERE</h1>
+            <div class="spacer-xsmall"></div>
+            <div class="text _1-5rem">Intelligent <span class="text-span">Analysis for Ethereum</span> Projects<br>CA:
+              0x251f48fdf1a4736de096d2e77e724b34c8dc8773<br></div>
+            <div class="spacer-large"></div>
+            <div class="spacer-xsmall"></div>
+            <div class="spacer-xsmall"></div>
+          </div>
+          <div class="spacer-xhuge"></div>
+        </div>
+      </section>
+      <section id="introduction" class="section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="spacer-xxhuge"></div>
+          <div class="w-layout-grid grid">
+            <div id="w-node-e6d9c2a2-d1ea-ea4e-0d0c-7e25b49ce6c0-7093f45d" class="g1-div">
+              <div id="dex-ai" class="details">
+                <div class="spacer-small"></div>
+                <h1 class="heading _2rem">What is Dex-AI?</h1>
+                <div class="spacer-small"></div>
+                <p class="text _1-25rem">Dex-AI is a groundbreaking token on the Ethereum blockchain, powering an
+                  AI-based ecosystem that provides intelligent analysis of Ethereum projects. Simply input a project's
+                  website or contract address, and Dex-AI delivers a comprehensive review and an overall rating out of
+                  10. With Dex-AI, assessing the potential and risk of your next investment has never been easier.</p>
+              </div>
+              <div class="w-layout-grid grid-2">
+                <div id="w-node-d40f9ba4-8d57-9020-737e-0d8cd4780a84-7093f45d" class="score-div">
+                  <div class="spacer-small"></div>
+                  <h1 class="text _1-7rem">Overall Score</h1><img src="64bf7fc321ecaafee8bfc4f1_Group%2013.svg"
+                    loading="lazy" alt="" class="image-2">
+                  <div class="spacer-small"></div>
+                </div>
+                <div id="w-node-_9e893604-7326-e610-361a-150b31368e62-7093f45d" class="div-line"></div>
+                <div id="w-node-_753719cc-c15a-dea5-3ab1-8501d7c183d9-7093f45d" class="score-details">
+                  <div class="spacer-small"></div>
+                  <div class="spacer-large"></div>
+                  <div class="score">
+                    <div class="number">
+                      <div>10</div>
+                    </div>
+                    <h1 class="text _1-25rem">Contract Audit</h1>
+                  </div>
+                  <div class="spacer-large"></div>
+                  <div class="score">
+                    <div class="number">
+                      <div>10</div>
+                    </div>
+                    <h1 class="text _1-25rem">Tokenomics</h1>
+                  </div>
+                  <div class="spacer-large"></div>
+                  <div class="score">
+                    <div class="number">
+                      <div>10</div>
+                    </div>
+                    <h1 class="text _1-25rem">Developer Activity</h1>
+                  </div>
+                  <div class="spacer-large"></div>
+                  <div class="score">
+                    <div class="number">
+                      <div>10</div>
+                    </div>
+                    <h1 class="text _1-25rem">Community Engagement,</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_93430528-c66d-095d-0626-fdc9692dbf3d-7093f45d" class="g1-div">
+              <div class="dx-do">
+                <h1 class="heading _2rem white">What Does Dex-AI Do?</h1>
+                <div class="more-about-dx">
+                  <h1 class="heading _1-25rem">AI-Powered Analysis</h1>
+                  <div class="spacer-xsmall"></div>
+                  <p class="text _1rem">Our advanced AI algorithm analyzes a multitude of project aspects including
+                    developer activity, contract audit results, tokenomics, and community engagement to provide a
+                    comprehensive evaluation.</p>
+                </div>
+                <div class="more-about-dx">
+                  <h1 class="heading _1-25rem">Investor-Friendly Ratings</h1>
+                  <div class="spacer-xsmall"></div>
+                  <p class="text _1rem">With a simple rating out of 10, Dex-AI makes understanding the potential and
+                    risk of Ethereum projects easier than ever.</p>
+                </div>
+                <div class="more-about-dx">
+                  <h1 class="heading _1-25rem">Premium Features</h1>
+                  <div class="spacer-xsmall"></div>
+                  <p class="text _1rem">As a Dex-AI token holder, enjoy access to advanced analysis features and early
+                    alerts on trending projects. Use your tokens to boost visibility of your favorite projects within
+                    the Dex-AI ecosystem.</p>
+                </div>
+                <div class="more-about-dx">
+                  <h1 class="heading _1-25rem">Decentralized Governance</h1>
+                  <div class="spacer-xsmall"></div>
+                  <p class="text _1rem">As part of our commitment to a truly decentralized ecosystem, Dex-AI token
+                    holders have voting rights on key platform decisions, ensuring a system that is truly by the people,
+                    for the people.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="Features" class="section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="spacer-xxhuge"></div>
+          <div class="spacer-small"></div>
+          <div class="w-layout-grid grid-2nd">
+            <div id="w-node-fa2c5eb2-493f-dc8f-c507-b404edb6eb14-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div class="img-wrap"><img src="64bf7fc3f4546e8d4d2ca302_Layer_1.svg" loading="lazy" alt=""
+                    class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Market Sentiment Analysis</h1>
+                  <p class="text _1rem">By scraping social media platforms and cryptocurrency forums (like Reddit,
+                    Twitter, etc.), the AI could gauge the general sentiment towards a project. This could be based on
+                    factors like volume of mentions, positive/negative sentiment of comments, etc.</p>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_6872a880-0fd2-b23b-e3b8-7242f42a28a6-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div class="img-wrap"><img src="64bf7fc2d5210a94664e7832_Group%2048096617.svg" loading="lazy" alt=""
+                    class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Competitor Analysis</h1>
+                  <p class="text _1rem">The AI could assess similar projects in the same space and provide a comparison
+                    based on various factors. This can help users understand how the project stands out from its
+                    competitors.</p>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-fae9f9c2-e11e-a761-0f5e-92ccd139adb7-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div id="w-node-fd309eba-61cc-476d-0596-9823b71f5e87-7093f45d" class="img-wrap"><img
+                    src="64bf7fc3426a9aac9cea45d6_Group%2048096618.svg" loading="lazy" alt="" class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Historical Performance</h1>
+                  <p class="text _1rem">Analyzing a project's historical performance in terms of price, volume, market
+                    cap, and other factors can provide insights into its stability and growth patterns.</p>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_86cb12f1-0221-1979-25d9-b6f8936c10d7-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div id="w-node-f166a771-3cc0-b877-d79f-4b9778b177bc-7093f45d" class="img-wrap"><img
+                    src="64bfe10b3f479572875a6f54_Group%2048096616.svg" loading="lazy" alt="" class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Roadmap Progress</h1>
+                  <p class="text _1rem">Evaluating how well the project has adhered to its roadmap in the past can help
+                    forecast future reliability. The AI could analyze delays, missed goals, and achieved milestones</p>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-a14da7bb-c39e-a02a-511e-3fe2404625d0-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div id="w-node-b53ecd41-8bde-44b0-241e-e58daddb4ec3-7093f45d" class="img-wrap"><img
+                    src="64bfe10b2dccc6aa3991d217_Group%2048096619.svg" loading="lazy" alt="" class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Community Engagement:</h1>
+                  <p class="text _1rem">Active community engagement is an often-overlooked but important aspect of
+                    project success. The AI could evaluate community size and activity on various platforms (forums,
+                    social media, etc.).</p>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_9a31b2bd-4755-36c3-67bc-9bb649f7e525-7093f45d" class="g2-div">
+              <div class="w-layout-grid grid-10">
+                <div id="w-node-_5f40ee13-8e5f-9caf-3a53-d8f3566fad41-7093f45d" class="img-wrap"><img
+                    src="64bf7fc2443faa46c8a4f25d_Layer_1%20(1).svg" loading="lazy" alt="" class="g2-img"></div>
+                <div class="g2-details">
+                  <h1 class="heading _1-25rem">Contract Audit</h1>
+                  <p class="text _1rem">Contract audits in Dex-AI involve an in-depth analysis of the project's smart
+                    contract. It verifies if the contract is renounced, which signifies that no changes can be made to
+                    it and adds an extra layer of security for investors. The audit also inspects the tax and liquidity
+                    aspects, ensuring fair tokenomics and assessing the project's stability.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="spacer-xxhuge"></div>
+          <div class="spacer-small"></div>
+        </div>
+      </section>
+      <section id="Roadmap" class="section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="map">
+            <h1 class="heading _2rem white">ROADMAP</h1>
+          </div>
+          <div class="spacer-huge"></div>
+          <div class="w-layout-grid grid-8">
+            <div id="w-node-_7067a212-817e-116b-3c51-0d5c4e260398-7093f45d" class="map-numbers">
+              <div class="spacer-2rem"></div>
+              <div id="w-node-_7067a212-817e-116b-3c51-0d5c4e260399-7093f45d"
+                data-w-id="7067a212-817e-116b-3c51-0d5c4e260399" style="opacity: 0;" class="phases">
+                <div class="text _2rem normal">01</div>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div data-w-id="dc12e9a7-5808-d371-647a-0373c4002da9" style="opacity: 0;" class="another-phase">
+              <h1 class="heading _2rem">Phase 1:</h1>
+              <div class="text _1-25rem gray">(Q3 2023)</div>
+            </div>
+            <div data-w-id="f7892df0-8711-94e7-87cd-d56f70885ddd" style="opacity: 0;" class="main-description">
+              <h1 class="heading _1-5rem">Contract Deployment &amp; Initial Development</h1>
+              <ul role="list" class="text _1-25rem">
+                <li>Deploy Dex-AI contract on the Ethereum blockchain.<br></li>
+                <li>Initiate third-party contract audits.</li>
+                <li>Assemble the development team for platform and AI model.</li>
+                <li>Begin development of the initial Dex-AI platform interface.</li>
+                <li>Start training of the AI model based on available Ethereum project data.</li>
+              </ul>
+            </div>
+            <div id="w-node-_748ba2c0-fb72-4372-892b-1edc31ab2abc-7093f45d"
+              data-w-id="748ba2c0-fb72-4372-892b-1edc31ab2abc" style="opacity: 0;" class="map-numbers">
+              <div class="line short"></div>
+              <div id="w-node-_748ba2c0-fb72-4372-892b-1edc31ab2abd-7093f45d" class="phases">
+                <div class="text _2rem normal">02</div>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div data-w-id="c5240b34-d661-2a56-4670-44bffabf542f" style="opacity: 0;" class="another-phase">
+              <div class="spacer-1-7rem"></div>
+              <h1 class="heading _2rem">Phase 2:</h1>
+              <div class="text _1-25rem gray">(Q4 2023-Q1 2024)</div>
+            </div>
+            <div data-w-id="9e5bfd05-1b60-4037-e454-205d49388680" style="opacity: 0;" class="main-description">
+              <h1 class="heading _1-5rem">Development Completion &amp; Testing</h1>
+              <ul role="list" class="text _1-25rem">
+                <li>Complete third-party contract audits and disclose results.<br></li>
+                <li>Finish development of the Dex-AI platform interface.</li>
+                <li>Complete training of the AI model.</li>
+                <li>Start the testing phase for the AI model and the platform.</li>
+                <li>Implement initial feedback and adjustments in the platform and AI model.</li>
+              </ul>
+            </div>
+            <div id="w-node-_2e4a8134-b9d2-f62f-f9f0-803dd1355a5b-7093f45d" class="map-numbers">
+              <div data-w-id="88699f97-d429-87f0-4cd6-db68ad2f3d02" style="opacity: 0;" class="map-numbers">
+                <div class="line short"></div>
+                <div id="w-node-_88699f97-d429-87f0-4cd6-db68ad2f3d04-7093f45d" class="phases">
+                  <div class="text _2rem normal">03</div>
+                </div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div data-w-id="50ec7893-60e3-7efa-73ad-21b79451a5c0" style="opacity: 0;" class="another-phase">
+              <div class="spacer-1-7rem"></div>
+              <h1 class="heading _2rem">Phase 3:</h1>
+              <div class="text _1-25rem gray">(Q2 2024)</div>
+            </div>
+            <div data-w-id="6b156bb3-23d3-b8a8-e20d-01b669a27e85" style="opacity: 0;" class="main-description">
+              <div class="spacer-small"></div>
+              <h1 class="heading _1-5rem">Beta Launch &amp; Refinement</h1>
+              <ul role="list" class="text _1-25rem">
+                <li>Launch the Dex-AI platform in beta for a limited audience.<br></li>
+                <li>Introduce the utility of the Dex-AI token within the platform.</li>
+                <li>Collect and implement feedback from the beta users.</li>
+                <li>Make further refinements and fix any identified bugs.</li>
+                <li>Prepare for the full public launch of the platform.</li>
+              </ul>
+            </div>
+            <div id="w-node-dd75570c-1ad4-1241-1598-9e145c313065-7093f45d" class="map-numbers">
+              <div data-w-id="b770d370-4609-110a-75c6-d2890458d651" style="opacity: 0;" class="map-numbers">
+                <div class="line short"></div>
+                <div id="w-node-b770d370-4609-110a-75c6-d2890458d653-7093f45d" class="phases">
+                  <div class="text _2rem normal">04</div>
+                </div>
+              </div>
+            </div>
+            <div data-w-id="dc8fc6ee-96b5-6b8e-6e03-caa2eb528cb6" style="opacity: 0;" class="another-phase">
+              <div class="spacer-1-7rem"></div>
+              <h1 class="heading _2rem">Phase 4:</h1>
+              <div class="text _1-25rem gray">(Q3 2024 &amp; Beyond)</div>
+            </div>
+            <div data-w-id="8d00730e-b3e6-829e-45b5-e0a8fbf4fd8b" style="opacity: 0;" class="main-description">
+              <div class="spacer-small"></div>
+              <h1 class="heading _1-5rem">Public Launch &amp; Ongoing Development</h1>
+              <ul role="list" class="text _1-25rem">
+                <li>Conduct the full public launch of the Dex-AI platform.<br></li>
+                <li>Roll out premium features for Dex-AI token holders.</li>
+                <li>Implement a governance model for token holders.</li>
+                <li>Continue with regular maintenance, updates, and improvements.</li>
+                <li>Plan and develop further expansions and services based on user feedback and market needs.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="w-layout-grid grid-9">
+            <div id="w-node-bec7a197-b15f-031b-a4f3-f22f1a083359-7093f45d" class="road-map mobile">
+              <div class="map-numbers mobile">
+                <div id="w-node-c9a65c27-ee88-d618-435c-adbfc4b60658-7093f45d" class="phases">
+                  <div class="text _2rem normal">01</div>
+                </div>
+                <div class="line hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+              </div>
+              <div class="another-phase">
+                <h1 class="heading _2rem">Phase 1:</h1>
+                <div class="text _1-25rem gray">(Q4 2023)</div>
+              </div>
+              <div class="main-description">
+                <h1 class="heading _1-5rem">Contract Deployment &amp; Initial Development</h1>
+                <ul role="list" class="text _1-25rem">
+                  <li>Deploy Dex-AI contract on the Ethereum blockchain.<br></li>
+                  <li>Initiate third-party contract audits.</li>
+                  <li>Development and implementation of initial marketing and community engagement strategies.</li>
+                  <li>Begin collecting user feedback for improvements and feature enhancement</li>
+                  <li>Start training of the AI model based on available Ethereum project data.</li>
+                </ul>
+              </div>
+            </div>
+            <div id="w-node-c671a678-e61d-6bda-2305-2176a2eaf272-7093f45d" class="road-map">
+              <div class="map-numbers mobile">
+                <div class="line short hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+                <div id="w-node-d77f72c0-0437-0fa7-9673-b3063ea6d951-7093f45d" class="phases">
+                  <div class="text _2rem normal">02</div>
+                </div>
+                <div class="line hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+              </div>
+              <div class="another-phase">
+                <div class="spacer-1-7rem"></div>
+                <h1 class="heading _2rem">Phase 2:</h1>
+                <div class="text _1-25rem gray">(Q4 2023-Q1 2024)</div>
+              </div>
+              <div class="main-description">
+                <div class="spacer-small"></div>
+                <h1 class="heading _1-5rem">Development Completion &amp; Testing</h1>
+                <ul role="list" class="text _1-25rem">
+                  <li>Complete third-party contract audits and disclose results.<br></li>
+                  <li>Finish development of the Dex-AI platform interface.</li>
+                  <li>Complete training of the AI model.</li>
+                  <li>Analyze and implement changes based on beta user feedback.</li>
+                  <li>Further develop and refine the AI algorithms based on initial data.</li>
+                </ul>
+              </div>
+            </div>
+            <div id="w-node-fd42980f-3531-ff8e-f90d-09fff84fe2d2-7093f45d" class="road-map">
+              <div class="map-numbers mobile">
+                <div class="line short hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+                <div id="w-node-c315f789-6a47-ee8f-a209-90c106060c27-7093f45d" class="phases">
+                  <div class="text _2rem normal">03</div>
+                </div>
+                <div class="line hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+              </div>
+              <div class="another-phase">
+                <div class="spacer-1-7rem"></div>
+                <h1 class="heading _2rem">Phase 3:</h1>
+                <div class="text _1-25rem gray">(Q2 2024)</div>
+              </div>
+              <div class="main-description">
+                <div class="spacer-small"></div>
+                <h1 class="heading _1-5rem">Feature enhancement &amp; community building</h1>
+                <ul role="list" class="text _1-25rem">
+                  <li>Introduce additional features and functionalities to the platform.<br></li>
+                  <li>Enhance user experience based on detailed analytics and user behavior.</li>
+                  <li>Grow the online community and engage in community-driven development.</li>
+                  <li>Conduct extensive market research for future feature expansions.</li>
+                  <li>Increase educational content and resources for users.</li>
+                </ul>
+              </div>
+            </div>
+            <div id="w-node-_2c1b8c8c-bb15-2139-38db-bf1d7b22d6e5-7093f45d" class="road-map">
+              <div class="map-numbers mobile">
+                <div class="line short hide-tablet hide-mobile-landscape hide-mobile-portrait"></div>
+                <div id="w-node-ba524bd9-2a6a-2cc3-bb19-555246d649bc-7093f45d" class="phases">
+                  <div class="text _2rem normal">04</div>
+                </div>
+              </div>
+              <div class="another-phase">
+                <div class="spacer-1-7rem"></div>
+                <h1 class="heading _2rem">Phase 4:</h1>
+                <div class="text _1-25rem gray">(Q3 2024 &amp; Beyond)</div>
+              </div>
+              <div class="main-description">
+                <div class="spacer-small"></div>
+                <h1 class="heading _1-5rem">sustained growth &amp; expansion</h1>
+                <ul role="list" class="text _1-25rem">
+                  <li>Continuously update and improve the platform based on market trends and user needs.<br></li>
+                  <li>Explore and integrate new DeFi services and tools into Dex-AI.</li>
+                  <li>Maintain a strong focus on security and compliance with emerging regulations.</li>
+                  <li>Foster a robust Dex-AI user community with active participation and feedback.</li>
+                  <li>Assess and adapt marketing strategies to reach broader audiences globally.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="FAQs" class="section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="spacer-small"></div>
+          <div class="spacer-xxhuge"></div>
+          <div class="map">
+            <h1 class="heading _2rem white">FAQs</h1>
+          </div>
+          <section class="rl_section_faq6">
+            <div class="rl-padding-global">
+              <div class="rl-container-large"></div>
+            </div>
+          </section>
+          <div class="spacer-huge"></div>
+          <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100"
+            class="tabs w-tabs">
+            <div class="tabs-menu w-tab-menu" role="tablist"><a data-w-tab="Tab 1"
+                class="tab-link-tab-1 w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-0"
+                href="#w-tabs-0-data-w-pane-0" role="tab" aria-controls="w-tabs-0-data-w-pane-0" aria-selected="true">
+                <div class="rl_faq6_question">
+                  <div class="text _1-25rem">Q: What is Dex-AI?</div>
+                  <div class="rl_faq6_icon-wrapper">
+                    <div class="icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.1722 12L8.22217 7.04999L9.63617 5.63599L16.0002 12L9.63617 18.364L8.22217 16.95L13.1722 12Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a><a data-w-tab="Tab 2" class="tab-link-tab-1 w-inline-block w-tab-link" tabindex="-1"
+                id="w-tabs-0-data-w-tab-1" href="#w-tabs-0-data-w-pane-1" role="tab"
+                aria-controls="w-tabs-0-data-w-pane-1" aria-selected="false">
+                <div class="rl_faq6_question">
+                  <div class="text _1-25rem">Q: How does Dex-AI work?</div>
+                  <div class="rl_faq6_icon-wrapper">
+                    <div class="icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.1722 12L8.22217 7.04999L9.63617 5.63599L16.0002 12L9.63617 18.364L8.22217 16.95L13.1722 12Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a><a data-w-tab="Tab 3" class="tab-link-tab-1 w-inline-block w-tab-link" tabindex="-1"
+                id="w-tabs-0-data-w-tab-2" href="#w-tabs-0-data-w-pane-2" role="tab"
+                aria-controls="w-tabs-0-data-w-pane-2" aria-selected="false">
+                <div class="rl_faq6_question">
+                  <div class="text _1-25rem">Q: What is a contract audit in Dex-AI?</div>
+                  <div class="rl_faq6_icon-wrapper">
+                    <div class="icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.1722 12L8.22217 7.04999L9.63617 5.63599L16.0002 12L9.63617 18.364L8.22217 16.95L13.1722 12Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a><a data-w-tab="Tab 4" class="tab-link-tab-1 w-inline-block w-tab-link" tabindex="-1"
+                id="w-tabs-0-data-w-tab-3" href="#w-tabs-0-data-w-pane-3" role="tab"
+                aria-controls="w-tabs-0-data-w-pane-3" aria-selected="false">
+                <div class="rl_faq6_question">
+                  <div class="text _1-25rem">Q: How is the Dex-AI rating calculated?</div>
+                  <div class="rl_faq6_icon-wrapper">
+                    <div class="icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.1722 12L8.22217 7.04999L9.63617 5.63599L16.0002 12L9.63617 18.364L8.22217 16.95L13.1722 12Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a><a data-w-tab="Tab 5" class="tab-link-tab-1 w-inline-block w-tab-link" tabindex="-1"
+                id="w-tabs-0-data-w-tab-4" href="#w-tabs-0-data-w-pane-4" role="tab"
+                aria-controls="w-tabs-0-data-w-pane-4" aria-selected="false">
+                <div class="rl_faq6_question">
+                  <div class="text _1-25rem">Q: Can I trust the Dex-AI analysis?</div>
+                  <div class="rl_faq6_icon-wrapper">
+                    <div class="icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M13.1722 12L8.22217 7.04999L9.63617 5.63599L16.0002 12L9.63617 18.364L8.22217 16.95L13.1722 12Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a></div>
+            <div class="tabs-content w-tab-content">
+              <div data-w-tab="Tab 1" class="tab-pane-tab-1 w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-0"
+                role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-0">
+                <div class="answers">
+                  <div class="text _1-25rem _600">Answer:</div>
+                  <p class="text _1-25rem">Dex-AI is an innovative DApp that uses machine learning to provide a
+                    comprehensive analysis of Ethereum-based projects. By assessing various parameters like developer
+                    activity, contract audits, tokenomics, community engagement, and Dextools data, Dex-AI assigns a
+                    rating out of 10 to the analyzed project.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 2" class="tab-pane-tab-1 w-tab-pane" id="w-tabs-0-data-w-pane-1" role="tabpanel"
+                aria-labelledby="w-tabs-0-data-w-tab-1">
+                <div class="answers">
+                  <div class="text _1-25rem _600">Answer:</div>
+                  <p class="text _1-25rem">Users can simply insert the website or contract address of an Ethereum
+                    project into Dex-AI. Our advanced AI analyzes various aspects of the project and provides a detailed
+                    review, including an overall rating.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 3" class="tab-pane-tab-1 w-tab-pane" id="w-tabs-0-data-w-pane-2" role="tabpanel"
+                aria-labelledby="w-tabs-0-data-w-tab-2">
+                <div class="answers">
+                  <div class="text _1-25rem _600">Answer:</div>
+                  <p class="text _1-25rem">In Dex-AI, a contract audit involves checking the project's smart contract.
+                    This includes whether the contract is renounced, its tax and liquidity aspects, and the lock period
+                    of the contract. These factors contribute significantly to the overall project rating.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 4" class="tab-pane-tab-1 w-tab-pane" id="w-tabs-0-data-w-pane-3" role="tabpanel"
+                aria-labelledby="w-tabs-0-data-w-tab-3">
+                <div class="answers">
+                  <div class="text _1-25rem _600">Answer:</div>
+                  <p class="text _1-25rem">The Dex-AI rating is generated by our advanced AI algorithm, which takes into
+                    account several factors like developer activity, contract audits, tokenomics, community engagement,
+                    and Dextools data. Each project is rated out of 10, providing users a quick and concise evaluation.
+                  </p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 5" class="tab-pane-tab-1 w-tab-pane" id="w-tabs-0-data-w-pane-4" role="tabpanel"
+                aria-labelledby="w-tabs-0-data-w-tab-4">
+                <div class="answers">
+                  <div class="text _1-25rem _600">Answer:</div>
+                  <p class="text _1-25rem">While Dex-AI strives to provide the most accurate and comprehensive analysis,
+                    it is always recommended for users to conduct their own research before making any investment
+                    decisions. Dex-AI analysis should be used as a part of your research, not as the sole determinant.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section footer">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="spacer-large"></div>
+          <div class="spacer-xxhuge"></div>
+          <div class="footer-div">
+            <div class="w-layout-grid grid-6">
+              <div id="w-node-_60f573cc-be1f-a3fc-380e-d6fdc9d55bd0-7093f45d" class="footer">
+                <h1 class="heading _2-25rem">Unlock the Future of DeFi with Dex-AI</h1>
+                <div class="text _1-25rem mob">Harness the power of AI to make informed decisions and take control of
+                  your DeFi journey. Don't wait, start today with Dex-AI, your intelligent partner in the DeFi world.
+                </div>
+                <div class="footer-link-div"><a href="https://t.me/dexaierc" target="_blank"
+                    class="footer-link w-inline-block"><img src="64c0c5a30ddaab2bd8adcea5_image%207.svg" loading="lazy"
+                      alt="" class="link-img"></a><a href="https://twitter.com/DexAiErc" target="_blank"
+                    class="footer-link w-inline-block"><img src="64c0c5a3fac265b1962c948e_image%208.svg" loading="lazy"
+                      alt="" class="link-img"></a><a href="#" class="footer-link w-inline-block"><img
+                      src="64c0c5a37e8881a7477089ea_image%209.svg" loading="lazy" alt="" class="link-img"></a><a
+                    href="#" class="footer-link w-inline-block"><img src="64c0c5a5c5ee7abe3499c4e8_image%2010.svg"
+                      loading="lazy" alt="" class="link-img"></a><a
+                    href="https://medium.com/@dexaierc/dex-ai-intelligent-analysis-for-ethereum-projects-a0e7fd858a19"
+                    target="_blank" class="footer-link w-inline-block"><img
+                      src="64c0c5a4397f6590fdbe7d47_Frame%20(1).svg" loading="lazy" alt="" class="link-img"></a><a
+                    href="https://dex-ai.gitbook.io/dex-ai/" target="_blank" class="footer-link w-inline-block"><img
+                      src="64c0c5a4430c26ba90ed81c9_Group%2048096662.svg" loading="lazy" alt=""
+                      class="link-img whitepaper"></a></div>
+              </div>
+              <div id="w-node-_5b6c15db-fe20-6a05-8392-0f50beb9e95a-7093f45d" class="footer-logo"><img
+                  src="64c0c5a4c5ee7abe3499c436_Group%2048096657.svg" loading="lazy" alt="" class="image-3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="spacer-large"></div>
+        <div class="spacer-large"></div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
